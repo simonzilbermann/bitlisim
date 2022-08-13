@@ -9,7 +9,7 @@ module.exports={
             {
                 return res.status(401).json({msg:"The link Not Found"})
             }else{
-                return res.status(200).json(rows.Url)
+                return res.redirect(rows.Url)
             }
 
         });
