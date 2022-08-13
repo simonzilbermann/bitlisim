@@ -24,7 +24,7 @@ app.use(express.urlencoded({
 }));
 
 //טעינת מחרוזת ההתחברות מתוך משתנה הסביבה
-const uri = process.env.MONGO_CONN_STR;
+const uri ="mongodb+srv://simon:yaron123@cluster0.aas0e.mongodb.net/LinkPress";
 mongoose.connect(uri,{useNewUrlParser:true,useUnifiedTopology:true}).then(()=>{console.log('mongo db connected')});
 
 
