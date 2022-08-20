@@ -19,6 +19,7 @@
     "express": "^4.18.1",
     "fast-hash-code": "^2.1.0",
     "generate-password": "^1.7.0",
+    "hbs": "^4.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.8.1",
     "mongoose": "^6.5.0",

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List URL 🖨</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <link rel="stylesheet" href="/public/cssListUrl/url.css">
+</head>
+<style>
+
+</style>
+        <div id="data"></div>  
+        <script>
+            str="";
+            fetch('/press',{
+                method: 'GET'
+                }).then((res)=>{
+                    return res.json()
+                }).then((data)=>{ 
+                    document.writeln('<body style="width: 98%; height:400%;  border: 10px solid;    border: 10px solid;border-image: linear-gradient(45deg, gold, deeppink) 1;clip-path: inset(0px round 10px); animation: huerotate 6s infinite linear;filter: hue-rotate(360deg);@keyframes huerotate { 0% {filter: hue-rotate(0deg); }100% { filter: hue-rotate(360deg);}}">');
+                    document.writeln('<table style="background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);"><thead><tr><th>Press URL</th><th></th><th>URL</th></tr></thead>');
+                    for(let i=0;i<data.length;i++)
+                    {
+                        document.writeln('<tbody><tr><td style="color: blue"><hr>'+ window.location + 's/' +data[i].Urlres +'</td><td></td><td style="color: red;"><hr>'+ data[i].Url +'</td></tr></tbody>');
+                    }
+            });      
+            str += '</table></body>';
+            document.getElementById('data').innerHTML=str;        
+        </script>
+</html>
+

@@ -9,9 +9,33 @@ const cors=require('cors');//ספרייה זו מטפלת בהרשאות הגי�
 const morgan=require('morgan');
 //טעינת משתני הסביבה לתוך אובייקט במערכת
 require('dotenv').config();
+//ספריאה המקבלת נתיבים במרחת הקבצים 
+const path = require('path');//מקבלת נתיב יחסי ןמחזירה נתיב אפסולותי
+
+const hbs = require('hbs');
+//רישום ספריית התבניות החלקיות במערכת
+hbs.registerPartials(path.join(__dirname,'views/partials'));
 
 //חיבור הראוטר של המשתמשים אל האפליקציה
 const LinkPressRouter=require("./api/v1/routes/linkpress");
+//אגדרה של תיקיאה שתחיל את תבניות האיצוב לדפים
+app.set('views', path.join(__dirname,'views'));//מחילה את מסתרפגים שלי
+//מנואה תצוגות של תפלאתים
+app.set('view engine','hbs');
+
+app.get('/',(req,res)=>{
+    res.render('index',{
+        list:'List URL'
+    });
+});
+
+app.get('/pres',(req,res)=>{
+    res.render('ListUrl',{
+
+    });
+});
+
+
 
 app.use(morgan('dev'));
 //הוספת שכבת הביניים של
@@ -22,6 +46,8 @@ app.use(express.json());
 app.use(express.urlencoded({
     extended:false
 }));
+//הגדרת תיקייה לקבצים סטאטיים
+app.use(express.static('public'));//קבצים שאינם עוברים עיבוד בשרת
 
 //טעינת מחרוזת ההתחברות מתוך משתנה הסביבה
 const uri ="mongodb+srv://simon:yaron123@cluster0.aas0e.mongodb.net/LinkPress";
