@@ -44,7 +44,7 @@
                                     <div class="col">
                                         <input class="form-control form-control-lg" id="url" type="text" name="url" placeholder="Link Address"/>
                                     </div>
-                                    <div class="col-auto"><button class="btn btn-primary btn-lg"  onclick="myfunc()" type="button">Click Me</button></div>
+                                    <div class="col-auto"><button class="btn btn-primary btn-lg"  onclick="validURL()" type="button">Click Me</button></div>
                                 </div>
                             </form>
                         </div>
@@ -114,6 +114,21 @@
             </div>
         </footer>
             <script>
+                function validURL() {
+                  var Url = document.getElementById("url").value;
+  var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+    '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+    '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+    '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+   if(pattern.test(Url))
+   {
+        myfunc()
+   }
+}
+
+
    function myfunc()
    {
         const Url= document.getElementById("url").value;  
