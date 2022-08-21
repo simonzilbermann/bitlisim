@@ -35,7 +35,11 @@ app.get('/pres',(req,res)=>{
     });
 });
 
+//app.get('/pr',(req,res)=>{
+    //res.render('ListUrl2',{
 
+    //});
+//});
 
 app.use(morgan('dev'));
 //הוספת שכבת הביניים של

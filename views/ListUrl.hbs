@@ -21,11 +21,11 @@
                 }).then((res)=>{
                     return res.json()
                 }).then((data)=>{ 
-                    document.writeln('<body style="width: 98%; height:450%;  border: 10px solid;    border: 10px solid;border-image: linear-gradient(45deg, gold, deeppink) 1;clip-path: inset(0px round 10px); animation: huerotate 6s infinite linear;filter: hue-rotate(360deg);@keyframes huerotate { 0% {filter: hue-rotate(0deg); }100% { filter: hue-rotate(360deg);}}">');
-                    document.writeln('<table style="background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);"><thead><tr><th>Press URL</th><th></th><th>URL</th></tr></thead>');
+                    document.writeln('<body style="background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);">');
+                    document.writeln('<table><thead><tr><th>Press URL</th><th>Count</th><th>URL</th></tr></thead>');
                     for(let i=0;i<data.length;i++)
                     {
-                        document.writeln('<tbody><tr><td style="color: blue"><hr>'+ window.location + 's/' +data[i].Urlres +'</td><td></td><td style="color: red;"><hr>'+ data[i].Url +'</td></tr></tbody>');
+                        document.writeln('<tbody><tr><td style="color: blue"><hr>'+ window.location + 's/' +data[i].Urlres +'</td><td><hr>'+ data[i].Count +'</td><td style="color: red;"><hr>'+ data[i].Url +'</td></tr></tbody>');
                     }
             });      
             str += '</table></body>';

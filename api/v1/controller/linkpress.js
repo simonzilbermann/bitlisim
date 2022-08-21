@@ -29,10 +29,12 @@ module.exports={
                     {
                         short =  require('../../../functions').idcrept(7);
                     }
+                    const cnt = 1;
                     const lk = new Link({
                         _id:new mongoose.Types.ObjectId(),
                         Url:Url,
-                        Urlres:short
+                        Urlres:short,
+                        Count:cnt
                     });
                     lk.save().then(()=>{
                         return res.status(200).json({msg:"Link press is : ",link:short});
@@ -42,10 +44,17 @@ module.exports={
                 });              
             }
             else
-            {
+            {  
+              
+                Link.updateOne({Url:Url},{$inc:{Count:+1}}).then(()=>{
+                     res.status(200);
+                });
+                  
                 Link.find({Url}).then((rows)=>{
                     return res.status(200).json({link:rows[0].Urlres});
                 });
+             
+               
             }
         });                
     },
@@ -55,4 +64,14 @@ module.exports={
           return res.status(200).json(link);
         });
     }
+
+    /*GetAllLink:(req,res)=>{// הצגת כל המוצרים
+        Link.find().then((link)=>{
+            if(link.length > 0)
+            {
+                return res.render('ListUrl2',{ListUrlArr:link});
+            }
+          //return res.status(200).json(link);
+        });
+    }*/
 };

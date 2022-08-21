@@ -5,4 +5,5 @@ router.get("/",GetAllLink);
 router.post("/",RegLink);
 router.get("/:Lid",LogLinkId);
 
+
 module.exports=router;

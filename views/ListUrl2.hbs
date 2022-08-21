@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="/csss/styles.css">
+         
+</head>
+<body>
+    <section id="tabs" class="project-tab">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <nav>
+                            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                               
+                            </div>
+                        </nav>
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <table class="table" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>URL</th>
+                                            <th>Count</th>
+                                            <th>Press URL</th>
+                                        </tr>
+                                    </thead>
+                                    {{#each ListUrlArr}}
+                                    <tbody>
+                                        <tr>
+                                            <td>{{this.Url}}</td>
+                                            <td>{{this.Count}}</td>   
+                                            <td>{{this.Urlres}}</td>     
+                                        </tr>
+                                    </tbody>
+                                    {{/each}}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+</body>
+</html>
